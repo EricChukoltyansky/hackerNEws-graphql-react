@@ -13,8 +13,24 @@ const typeDefs = `
   }
 `;
 
+let links = [
+  {
+    id: "link-0",
+    url: "www.howtographql.com",
+    description: "Fullstack tutorial for GraphQL",
+  },
+];
+
 const resolvers = {
-  Query: { info: () => `This is the API of a hackerNews clone` },
+  Query: {
+    info: () => `This is the API of a hackerNews clone`,
+    feed: () => links,
+  },
+  Link: {
+    id,
+    description,
+    url,
+  },
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
